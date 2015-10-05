@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">The Roster</string>
+    <string name="action_settings">Settings</string>
+    <string name="thinkweare">Thinks We Are Going Steady</string>
+    <string name="name">Enter your name</string>
+    <string name="shirtsize_xs">XS</string>
+    <string name="shirtsize_s">S</string>
+    <string name="shirtsize_m">M</string>
+    <string name="shirtsize_l">L</string>
+    <string name="shirtsize_xl">XL</string>
+    <string name="shirtsize_xxl">XXL</string>
+    <string name="shirtsize">Shirt Size</string>
+    <string name="eyecolor">Eye Color</string>
+    <string name="save">Save</string>
+    <string name="birthday">Birth Day</string>
+    <string name="pantsize">Pant Size</string>
+    <string name="shoesize">Shoe Size</string>
+    <string name="entername">Enter your name</string>
+    <string name="key_name">name</string>
+    <string name="key_eyecolor">eyecolor</string>
+    <string name="key_birthday">birthday</string>
+    <string name="key_shoesize">shoesize</string>
+    <string name="key_shirtsize_rb">shirtsizerb</string>
+    <string name="key_pantsize">pantsize</string>
+    <string name="key_shirtsize_sb">shirtsizesb</string>
+    <string name="min_shoesize">4</string>
+    <string name="max_shoesize">12</string>
+    <string name="min_shirtsize">0</string>
+    <string name="max_shirtsize">12</string>
+    <string name="min_pantsize">0</string>
+    <string name="max_pantsize">16</string>
+    <string-array name="eyecolor_item">
+        <item>Black</item>
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Brown</item>
+        <item>Green</item>
+    </string-array>
+</resources>
