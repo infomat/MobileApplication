@@ -52,27 +52,40 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     private TextView pantsize_text;
     private TextView shirtsize_text;
     private TextView shoesize_text;
-    //
-    private String strName, strBirthday;
+    //Person's Name
+    private String strName;
+    //Size from seekbar
     private Integer pantSize, shirtSize, shoeSize;
 
    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        eyeColor=(Spinner)findViewById(R.id.sp_eyeColor);
-        birthday = (TextView)findViewById(R.id.tv_calendar);
-        thinkWeAre = (CheckBox) findViewById(R.id.cb_thinkWeAre);
-        radioGroup= (RadioGroup)findViewById(R.id.radioGroup);
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       eyeColor=(Spinner)findViewById(R.id.sp_eyeColor);
+       birthday = (TextView)findViewById(R.id.tv_calendar);
+       thinkWeAre = (CheckBox) findViewById(R.id.cb_thinkWeAre);
+       radioGroup= (RadioGroup)findViewById(R.id.radioGroup);
 
+       setActionBarTitle();
        restorePreferences();
        updateEditText();
        initCalendarView();
-       initRadioButtonChecked();
        updateRadioButtonChecked();
        initSpinnerDropDown();
        initSeekBar();
        updateSeekBarText();
+    }
+
+    private void setActionBarTitle() {
+        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getActionBar().setCustomView(R.layout.action_bar);
+    }
+
+    private void SetCustomTitle(String title)
+    {
+        TextView textViewTitle = (TextView) findViewById(R.id.action_bar_title);
+        Log.d("MainActivity",title);
+        textViewTitle.setText(title);
     }
 
     private void updateEditText() {
@@ -92,10 +105,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         }
         Calendar selectedCal = new GregorianCalendar(year_x, month_x, day_x);
         birthday.setText(formatDate.format(selectedCal.getTime()));
-    }
-
-    private void initRadioButtonChecked() {
-
     }
 
     private void updateRadioButtonChecked() {
@@ -193,8 +202,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         shoesize_text.setText(String.valueOf(shoeSize + 4));
     }
 
-    private DatePickerDialog.OnDateSetListener dpickerListener
-            = new DatePickerDialog.OnDateSetListener() {
+    private DatePickerDialog.OnDateSetListener dpickerListener =
+            new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             year_x = year;
@@ -245,7 +254,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         shoeSize = settings.getInt(getString(R.string.key_shoesize),0);
     }
     //Save Button OnClick
-    public void onSave(View v) {
+    public void onSave() {
 
         Log.d("MainActivity", String.valueOf(eyeColor.getSelectedItemPosition()));
 
@@ -284,7 +293,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_save) {
+            onSave();
             return true;
         }
 
