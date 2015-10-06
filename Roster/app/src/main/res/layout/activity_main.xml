@@ -33,7 +33,8 @@
         android:checked="false"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/et_name"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="@dimen/widget_vertical_margin"
+        android:onClick="onCheckboxClicked"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +43,7 @@
         android:id="@+id/tv_eyeColor"
         android:layout_below="@+id/cb_thinkWeAre"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="@dimen/widget_vertical_margin"/>
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
         android:id="@+id/tv_birthday"
         android:layout_below="@+id/sp_eyeColor"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="@dimen/widget_vertical_margin"/>
 
 
     <TextView
@@ -72,7 +73,7 @@
         android:textColor="#000000"
         android:layout_below="@+id/tv_birthday"
         android:layout_alignParentStart="true"
-        android:onClick="showCalendar"/>
+        android:onClick="onShowCalendar"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,7 +82,7 @@
         android:id="@+id/tv_shirtsSize"
         android:layout_below="@+id/tv_calendar"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="@dimen/widget_vertical_margin"/>
 
     <RadioGroup
         android:layout_width="fill_parent"
@@ -97,7 +98,7 @@
             android:text="@string/shirtsize_xs"
             android:id="@+id/rb_xs"
             android:checked="false"
-            android:singleLine="false" />
+            android:singleLine="false"/>
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -105,14 +106,14 @@
             android:text="@string/shirtsize_s"
             android:id="@+id/rb_s"
             android:checked="false"
-            android:singleLine="false" />
+            android:singleLine="false"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/shirtsize_m"
             android:id="@+id/rb_m"
-            android:checked="true" />
+            android:checked="true"/>
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -126,7 +127,7 @@
             android:layout_height="wrap_content"
             android:text="@string/shirtsize_xl"
             android:id="@+id/rb_xl"
-            android:checked="false" />
+            android:checked="false"/>
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -144,16 +145,19 @@
         android:id="@+id/tv_pantSize"
         android:layout_below="@+id/radioGroup"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="@dimen/seekbar_vertical_margin"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/min_pantsize"
-        android:id="@+id/tv_minPantSize"
-        android:layout_marginLeft="5dp"
+        android:id="@+id/tv_seekPantSize"
+        android:layout_marginLeft="@dimen/widget_horizontal_margin"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tv_pantSize"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|right"
+        android:linksClickable="true"
+        android:width="@dimen/seekbar_text_width" />
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,20 +165,10 @@
         android:indeterminate="false"
         android:max="16"
         android:splitTrack="false"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_toStartOf="@+id/tv_maxPantSize"
-        android:layout_toEndOf="@+id/tv_minPantSize"
+        android:layout_marginLeft="@dimen/seekbar_horizontal_margin"
+        android:layout_marginRight="@dimen/seekbar_horizontal_margin"
+        android:layout_toEndOf="@+id/tv_seekPantSize"
         android:layout_below="@+id/tv_pantSize"
-        android:layout_centerVertical="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/max_pantsize"
-        android:id="@+id/tv_maxPantSize"
-        android:gravity="right"
-        android:layout_below="@+id/tv_pantSize"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true" />
 
     <TextView
@@ -184,36 +178,29 @@
         android:id="@+id/tv_shirtSize"
         android:layout_below="@+id/sb_pantSize"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="@dimen/seekbar_vertical_margin"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/min_shirtsize"
-        android:id="@+id/tv_minShirtSize"
-        android:layout_marginLeft="5dp"
+        android:id="@+id/tv_seekShirtSize"
+        android:layout_marginLeft="@dimen/widget_horizontal_margin"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tv_shirtSize"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|right"
+        android:width="@dimen/seekbar_text_width"/>
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sb_shirtSize"
         android:max="12"
         android:indeterminate="false"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_toStartOf="@+id/tv_maxShirtSize"
-        android:layout_toEndOf="@+id/tv_minShirtSize"
+        android:layout_marginLeft="@dimen/seekbar_horizontal_margin"
+        android:layout_marginRight="@dimen/seekbar_horizontal_margin"
+        android:layout_toEndOf="@+id/tv_seekShirtSize"
         android:layout_centerVertical="true"
         android:layout_below="@+id/tv_shirtSize"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/max_shirtsize"
-        android:id="@+id/tv_maxShirtSize"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_shirtSize"
-        android:layout_centerVertical="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -221,37 +208,30 @@
         android:text="@string/shoesize"
         android:id="@+id/tv_shoeSize"
         android:layout_below="@+id/sb_shirtSize"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="@dimen/seekbar_vertical_margin"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/min_shoesize"
-        android:id="@+id/tv_minShoeSize"
-        android:layout_marginLeft="5dp"
+        android:id="@+id/tv_seekShoeSize"
+        android:layout_marginLeft="@dimen/widget_horizontal_margin"
         android:layout_below="@+id/tv_shoeSize"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|right"
+        android:width="@dimen/seekbar_text_width"/>
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sb_shoeSize"
         android:max="12"
         android:indeterminate="false"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_toStartOf="@+id/tv_maxShoeSize"
-        android:layout_toEndOf="@+id/tv_minShoeSize"
+        android:layout_marginLeft="@dimen/seekbar_horizontal_margin"
+        android:layout_marginRight="@dimen/seekbar_horizontal_margin"
+        android:layout_toEndOf="@+id/tv_seekShoeSize"
         android:layout_centerVertical="true"
         android:layout_below="@+id/tv_shoeSize"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/max_shoesize"
-        android:id="@+id/tv_maxShoeSize"
-        android:layout_below="@+id/tv_shoeSize"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true" />
 
     <Button
         android:layout_width="wrap_content"
