@@ -254,7 +254,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         shoeSize = settings.getInt(getString(R.string.key_shoesize),0);
     }
     //Save Button OnClick
-    public void onSave() {
+    public void onSave(View v) {
 
         Log.d("MainActivity", String.valueOf(eyeColor.getSelectedItemPosition()));
 
@@ -294,7 +294,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_save) {
-            onSave();
+            onSave(item.getActionView());
             return true;
         }
 
